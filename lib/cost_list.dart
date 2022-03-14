@@ -1,6 +1,7 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:tracking_expences/shared/create_item.dart';
 class cost_list extends StatefulWidget {
   const cost_list({Key? key}) : super(key: key);
 
@@ -19,7 +20,15 @@ class _cost_listState extends State<cost_list> {
       ),
       body: Center(
         child: SingleChildScrollView(
-          child: Column(),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                TextButton(onPressed: ()async {
+                  await Navigator.of(context).push(MaterialPageRoute(builder: (context) => create_item()),);},
+                  child:
+                  const Text('Add Expense', style: TextStyle(color: Colors.black, fontSize: 20)),),
+              ],
+          ),
         ),
       ),
     );
