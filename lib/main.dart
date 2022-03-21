@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextButton(onPressed: ()async {
+              ElevatedButton(onPressed: ()async {
                await Navigator.of(context).push(MaterialPageRoute(builder: (context) => cost_list()),);},
                 child:
                 const Text('Manage Expenses', style: TextStyle(color: Colors.black, fontSize: 20)),),

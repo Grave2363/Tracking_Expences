@@ -23,7 +23,7 @@ class _cost_listState extends State<cost_list> {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                TextButton(onPressed: ()async {
+                ElevatedButton(onPressed: ()async {
                   await Navigator.of(context).push(MaterialPageRoute(builder: (context) => create_item()),);},
                   child:
                   const Text('Add Expense', style: TextStyle(color: Colors.black, fontSize: 20)),),
