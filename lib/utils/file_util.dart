@@ -10,7 +10,6 @@ class file_util
     String filePath = '$appDocumentsPath/expense.txt';
 
     return filePath;
-    return filePath;
   }
   //save new text
   void saveFile(String cost, String name) async {
