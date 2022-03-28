@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:tracking_expences/shared/create_item.dart';
+import 'package:tracking_expences/shared/styles.dart';
 class cost_list extends StatefulWidget {
   const cost_list({Key? key}) : super(key: key);
 
@@ -23,7 +24,9 @@ class _cost_listState extends State<cost_list> {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                ElevatedButton(onPressed: ()async {
+                ElevatedButton(
+                  style: btnStyle,
+                  onPressed: ()async {
                   await Navigator.of(context).push(MaterialPageRoute(builder: (context) => create_item()),);},
                   child:
                   const Text('Add Expense', style: TextStyle(color: Colors.black, fontSize: 20)),),

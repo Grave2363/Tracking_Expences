@@ -1,5 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:tracking_expences/shared/styles.dart';
+
+import '../utils/file_util.dart';
 // ignore: camel_case_types
 class create_item extends StatefulWidget {
   const create_item({Key? key}) : super(key: key);
@@ -11,6 +14,7 @@ class create_item extends StatefulWidget {
 class _create_itemState extends State<create_item> {
   TextEditingController costNameEditor = TextEditingController();
   TextEditingController costValueEditor = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,8 +49,12 @@ class _create_itemState extends State<create_item> {
                 ),
               ),
               const SizedBox(height: 30),
-              ElevatedButton(onPressed: ()async {
-              /*await Navigator.of(context).push(MaterialPageRoute(builder: (context) => create_item()),);*/},
+              ElevatedButton(
+                style: btnStyle,
+                onPressed: ()async {
+                  file_util().getFilePath();
+                  file_util().saveFile(costValueEditor.text, costNameEditor.text);
+                },
               child:
               const Text('Save', style: TextStyle(color: Colors.black, fontSize: 20)),),
             ],

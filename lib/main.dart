@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'shared/styles.dart';
 import 'cost_list.dart';
 
 void main() {
@@ -34,6 +34,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
+
   Widget build(BuildContext context) {
 
     return Scaffold(
@@ -47,8 +48,10 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ElevatedButton(onPressed: ()async {
-               await Navigator.of(context).push(MaterialPageRoute(builder: (context) => cost_list()),);},
+              ElevatedButton(
+                style: btnStyle,
+                onPressed: ()async {
+                await Navigator.of(context).push(MaterialPageRoute(builder: (context) => cost_list()),);},
                 child:
                 const Text('Manage Expenses', style: TextStyle(color: Colors.black, fontSize: 20)),),
                 const SizedBox(height: 20),
