@@ -4,13 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:tracking_expences/shared/create_item.dart';
 import 'package:tracking_expences/shared/styles.dart';
 class cost_list extends StatefulWidget {
-  const cost_list({Key? key}) : super(key: key);
 
+  const cost_list({Key? key}) : super(key: key);
   @override
   State<cost_list> createState() => _cost_listState();
 }
 
 class _cost_listState extends State<cost_list> {
+  // both are temp testing lists, will change to the saved lists
+  List name = <String>['A','B','C' ];
+  List cost = <String>['5','4','7' ];
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -19,20 +22,40 @@ class _cost_listState extends State<cost_list> {
         elevation: 0.0,
         title: const Text('Expense List'),
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  style: btnStyle,
-                  onPressed: ()async {
-                  await Navigator.of(context).push(MaterialPageRoute(builder: (context) => create_item()),);},
-                  child:
-                  const Text('Add Expense', style: TextStyle(color: Colors.black, fontSize: 20)),),
-              ],
-          ),
-        ),
+      body: ListView.builder(
+        itemBuilder: (context, position) {
+          return Column(
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding:
+                        const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 6.0),
+                        child: Text(
+                          name[position],
+                          style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                        const EdgeInsets.fromLTRB(12.0, 6.0, 12.0, 12.0),
+                        child: Text(
+                          "\$ "+cost[position],
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          );
+        },
+        itemCount: name.length,
       ),
     );
   }
