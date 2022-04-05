@@ -33,6 +33,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List name = <String>['A','B','C' ];
+  List cost = <String>['5','4','7' ];
   @override
 
   Widget build(BuildContext context) {
@@ -51,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ElevatedButton(
                 style: btnStyle,
                 onPressed: ()async {
-                await Navigator.of(context).push(MaterialPageRoute(builder: (context) => cost_list()),);},
+                await Navigator.of(context).push(MaterialPageRoute(builder: (context) => cost_list(name: name,cost: cost,)),);},
                 child:
                 const Text('Manage Expenses', style: TextStyle(color: Colors.black, fontSize: 20)),),
                 const SizedBox(height: 20),
